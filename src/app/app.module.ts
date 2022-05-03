@@ -7,6 +7,8 @@ import { CharacterListComponent } from './character-list/character-list.componen
 import { CharacterComponent } from './character/character.component';
 import { CharacterDisplayComponent } from './character-display/character-display.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewCharacterComponent } from './new-character/new-character.component';
+import { AppRoutingModule } from './shared/app-router.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CharacterListComponent,
     CharacterComponent,
     CharacterDisplayComponent,
+    NewCharacterComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
