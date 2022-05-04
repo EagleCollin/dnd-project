@@ -4,6 +4,8 @@ import { Character } from './character-model';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService {
+  characterListChange = new EventEmitter();
+
   private myCharacters: Character[] = [
     {
       name: 'James',
@@ -64,5 +66,16 @@ export class CharacterService {
 
   addCharacter(character: Character) {
     this.myCharacters.push(character);
+
+    this.characterListChange.emit(this.myCharacters.slice());
+  }
+
+  deleteCharacter(idx: number) {
+    if (idx >= this.myCharacters.length || idx < 0) {
+      return this.myCharacters;
+    } else {
+      this.myCharacters.splice(idx, 1);
+      this.characterListChange.emit(this.myCharacters.slice());
+    }
   }
 }

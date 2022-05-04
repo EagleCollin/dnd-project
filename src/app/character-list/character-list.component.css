@@ -1,0 +1,6 @@
+.character-list {
+  margin: auto;
+  list-style-type: none;
+  padding: 0.25;
+  width: 25em;
+}

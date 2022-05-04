@@ -1,0 +1,9 @@
+.characters {
+  margin: auto;
+  list-style-type: none;
+  padding: 0.25;
+  width: 25em;
+  background-color: rgb(6, 92, 95);
+  border-radius: 25px;
+  cursor: pointer;
+}
