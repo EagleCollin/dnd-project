@@ -1,0 +1,8 @@
+.numInput input {
+  width: 64px;
+  height: 28px;
+}
+
+form .ng-touched .ng-invalid {
+  border: 1px solid red;
+}
