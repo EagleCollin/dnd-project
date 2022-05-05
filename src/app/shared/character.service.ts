@@ -5,6 +5,7 @@ import { Character } from './character-model';
 @Injectable({ providedIn: 'root' })
 export class CharacterService {
   characterListChange = new EventEmitter();
+  selectedCharacter = new Subject<Character>();
 
   private myCharacters: Character[] = [
     {
@@ -77,5 +78,10 @@ export class CharacterService {
       this.myCharacters.splice(idx, 1);
       this.characterListChange.emit(this.myCharacters.slice());
     }
+  }
+
+  displayCharacter(idx: number) {
+    this.selectedCharacter.next(this.myCharacters.slice()[idx]);
+    return this.myCharacters.slice()[idx];
   }
 }

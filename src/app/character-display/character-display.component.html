@@ -47,7 +47,11 @@
                 ><input name="Strengthscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input name="Strengthmod" placeholder="+0" />
+                <input
+                  name="Strengthmod"
+                  placeholder="+0"
+                  value="{{ genScores(character.attributes.strength) }}"
+                />
               </div>
             </li>
             <li>
@@ -56,7 +60,11 @@
                 ><input name="Dexterityscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input name="Dexteritymod" placeholder="+0" />
+                <input
+                  name="Dexteritymod"
+                  placeholder="+0"
+                  value="{{ genScores(character.attributes.dexterity) }}"
+                />
               </div>
             </li>
             <li>
@@ -65,7 +73,11 @@
                 ><input name="Constitutionscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input name="Constitutionmod" placeholder="+0" />
+                <input
+                  name="Constitutionmod"
+                  placeholder="+0"
+                  value="{{ genScores(character.attributes.constitution) }}"
+                />
               </div>
             </li>
             <li>
@@ -74,7 +86,11 @@
                 ><input name="Wisdomscore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input name="Wisdommod" placeholder="+0" />
+                <input
+                  name="Wisdommod"
+                  placeholder="+0"
+                  value="{{ genScores(character.attributes.wisdom) }}"
+                />
               </div>
             </li>
             <li>
@@ -83,7 +99,11 @@
                 ><input name="Intelligencescore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input name="Intelligencemod" placeholder="+0" />
+                <input
+                  name="Intelligencemod"
+                  placeholder="+0"
+                  value="{{ genScores(character.attributes.intelligence) }}"
+                />
               </div>
             </li>
             <li>
@@ -92,7 +112,11 @@
                 ><input name="Charismascore" placeholder="10" />
               </div>
               <div class="modifier">
-                <input name="Charismamod" placeholder="+0" />
+                <input
+                  name="Charismamod"
+                  placeholder="+0"
+                  value="{{ genScores(character.attributes.charisma) }}"
+                />
               </div>
             </li>
           </ul>
