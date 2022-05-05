@@ -29,6 +29,6 @@ export class CharacterDisplayComponent implements OnInit {
   genScores(att) {
     let modifier = Math.floor((att - 10) / 2);
     let sign = modifier >= 0 ? '+' : '';
-    return modifier;
+    return sign + modifier;
   }
 }
