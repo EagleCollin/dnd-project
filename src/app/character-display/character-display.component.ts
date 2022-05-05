@@ -11,6 +11,7 @@ import { CharacterService } from '../shared/character.service';
 export class CharacterDisplayComponent implements OnInit {
   character: Character;
   idx: number;
+  profBonus;
 
   constructor(
     private characterService: CharacterService,
@@ -22,10 +23,12 @@ export class CharacterDisplayComponent implements OnInit {
       this.idx = +params['id'];
       this.character = this.characterService.displayCharacter(this.idx);
     });
+    this.profBonus = 1 + Math.floor(this.character.level / 4);
   }
 
   genScores(att) {
     let modifier = Math.floor((att - 10) / 2);
+    let sign = modifier >= 0 ? '+' : '';
     return modifier;
   }
 }
