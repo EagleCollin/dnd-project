@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterService } from '../shared/character.service';
 
 @Component({
   selector: 'app-character-display',
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-display.component.css']
 })
 export class CharacterDisplayComponent implements OnInit {
-
-  constructor() { }
+   constructor(private characterService: CharacterService,) { }
 
   ngOnInit(): void {
   }
