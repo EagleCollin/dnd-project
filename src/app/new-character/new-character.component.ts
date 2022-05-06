@@ -28,7 +28,6 @@ export class NewCharacterComponent implements OnInit {
 
   onCharacterSubmit() {
     this.formSubmitted = true;
-
     this.reactiveForm.reset();
   }
 
