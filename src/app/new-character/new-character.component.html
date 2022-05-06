@@ -1,4 +1,4 @@
-<form [formGroup]="reactiveForm" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="reactiveForm" (ngSubmit)="onCharacterSubmit()">
   <div class="col-md-12">
     <div class="form-group">
       <label for="name">Character Name</label>
@@ -129,7 +129,7 @@
         class="help-block text-danger"
         *ngIf="
           reactiveForm.controls['constitution'].touched &&
-          !reactiveForm.controls['consitution'].valid
+          !reactiveForm.controls['constitution'].valid
         "
         >Please input your constitution!</span
       >

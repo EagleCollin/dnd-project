@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,10 +12,23 @@ export class NewCharacterComponent implements OnInit {
   formSubmitted: boolean = false;
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.reactiveForm = new FormGroup({
+      name: new FormControl(),
+      class: new FormControl(),
+      level: new FormControl(),
+      strength: new FormControl(),
+      dexterity: new FormControl(),
+      constitution: new FormControl(),
+      wisdom: new FormControl(),
+      intelligence: new FormControl(),
+      charisma: new FormControl(),
+    });
+  }
 
-  onFormSubmit() {
+  onCharacterSubmit() {
     this.formSubmitted = true;
+    // this.router.navigate(['/choices']);
 
     this.reactiveForm.reset();
   }
