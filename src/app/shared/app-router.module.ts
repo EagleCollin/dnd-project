@@ -12,7 +12,7 @@ const appRoutes: Routes = [
     component: CharacterHomeComponent,
     children: [
       { path: 'new', component: NewCharacterComponent },
-      { path: 'choices', component: ProficiencySelectionComponent },
+      { path: 'new/choices', component: ProficiencySelectionComponent },
       { path: ':id', component: CharacterDisplayComponent },
     ],
   },

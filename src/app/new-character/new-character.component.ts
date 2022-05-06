@@ -28,7 +28,6 @@ export class NewCharacterComponent implements OnInit {
 
   onCharacterSubmit() {
     this.formSubmitted = true;
-    // this.router.navigate(['/choices']);
 
     this.reactiveForm.reset();
   }
