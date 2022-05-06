@@ -19,15 +19,7 @@ export class NewCharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
-      // name: new FormControl(),
       class: new FormControl(),
-      // level: new FormControl(),
-      // strength: new FormControl(),
-      // dexterity: new FormControl(),
-      // constitution: new FormControl(),
-      // wisdom: new FormControl(),
-      // intelligence: new FormControl(),
-      // charisma: new FormControl(),
     });
   }
 
