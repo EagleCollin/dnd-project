@@ -30,7 +30,8 @@ export class NewCharacterComponent implements OnInit {
 
   onSearchClass(charClass: any) {
     console.log(charClass);
-    this.classService.onCreateCharacter();
+    this.classService.onClassSelect(charClass);
+    this.router.navigate(['choices'], { relativeTo: this.route });
   }
 
   onResetForm() {

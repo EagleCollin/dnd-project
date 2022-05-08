@@ -5,13 +5,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class NewCharacterService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,) {}
 
-  onCreateCharacter() {
+  onClassSelect(charClass: string) {
+    const formattedSearch = charClass.toLocaleLowerCase();
+
     this.http
-      .get('https://www.dnd5eapi.co/api/ability-scores/cha')
+      .get(`https://www.dnd5eapi.co/api/classes/${formattedSearch}`)
       .subscribe((results: any) => {
         console.log(results);
       });
+
+
   }
 }
