@@ -17,8 +17,9 @@ export class ProficiencySelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.newCharacterService.proficiencyChoices.subscribe((response) => {
-      this.proficiencyChoices = response;
-      console.log(response);
+      this.proficiencyChoices = response.map((data) => data.from);
+
+      console.log(this.proficiencyChoices);
     });
   }
 }
