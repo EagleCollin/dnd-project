@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CharacterDisplayComponent } from '../character-display/character-display.component';
 import { CharacterHomeComponent } from '../character-home/character-home.component';
 import { NewCharacterComponent } from '../new-character/new-character.component';
-import { ProficiencySelectionComponent } from '../proficiency-selection/proficiency-selection.component';
+import { ProficiencySelectionComponent } from '../new-character/proficiency-selection/proficiency-selection.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/characters', pathMatch: 'full' },
