@@ -12,14 +12,15 @@ import {
 })
 export class ProficiencySelectionComponent implements OnInit {
   proficiencyChoices;
+  proficiencyChoiceTypes;
 
   constructor(private newCharacterService: NewCharacterService) {}
 
   ngOnInit(): void {
     this.newCharacterService.proficiencyChoices.subscribe((response) => {
-      this.proficiencyChoices = response.map((data) => data.from);
+      this.proficiencyChoiceTypes = response.map((data) => data.from);
 
-      console.log(this.proficiencyChoices);
+      console.log(this.proficiencyChoiceTypes);
     });
   }
 }
