@@ -11,13 +11,15 @@ import {
   styleUrls: ['./proficiency-selection.component.css'],
 })
 export class ProficiencySelectionComponent implements OnInit {
-  proficiencyChoices;
-  proficiencyChoiceTypes;
+  proficiencyChoices = [];
+  proficiencyChoiceTypes= [];
+  proficiencyChoiceNumber = [];
 
   constructor(private newCharacterService: NewCharacterService) {}
 
   ngOnInit(): void {
     this.newCharacterService.proficiencyChoices.subscribe((response) => {
+      this.proficiencyChoiceNumber = response.map((res)=> res.choose);
       this.proficiencyChoiceTypes = response.map((data) => data.from);
 
       console.log(this.proficiencyChoiceTypes);
