@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="proficienciesSelectedForm" (ngSubmit)="proficiencyChoicesSubmit()">
   <ul *ngFor="let proficiency of proficiencyChoiceTypes; let i = index">
     <p>Choose {{ proficiencyChoiceNumber[i] }}</p>
     <li *ngFor="let choice of proficiency; let i = index">{{ choice.name }}</li>
