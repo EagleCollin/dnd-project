@@ -16,7 +16,6 @@ export class CharacterHomeComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         this.isListRoute = event.url == '/characters';
-        console.log(event.url);
       });
   }
 }

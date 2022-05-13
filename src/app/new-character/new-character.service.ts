@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { Character } from '../shared/character-model';
+import { CharacterService } from '../shared/character.service';
 
 export interface ProficiencyChoice {
   choose: number;
@@ -17,12 +19,24 @@ export interface ProficiencyDetails {
   providedIn: 'root',
 })
 export class NewCharacterService {
+  selectedProficiencyIds = new Subject();
   proficiencyChoices = new Subject<ProficiencyChoice[]>();
+  newCharacter: any = {
+    name: '',
+    class: '',
+    level: 1,
+    race: '',
+    background: '',
+  };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private characterService: CharacterService
+  ) {}
 
   onClassSelect(charClass: string) {
     const formattedSearch = charClass.toLocaleLowerCase();
+    this.newCharacter.class = charClass;
 
     this.http
       .get(`https://www.dnd5eapi.co/api/classes/${formattedSearch}`)
