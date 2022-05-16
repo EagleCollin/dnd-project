@@ -345,31 +345,20 @@ form.charsheet
   span.skill {
   color: #bbb;
 }
-form.charsheet
-  main
-  > section
-  section.attributes
-  div.attr-applications
-  div.list-section
-  ul
-  li
-  input[type="text"] {
+
+  .prof-label {
   width: 30px;
   font-size: 12px;
   text-align: center;
   border: 0;
   border-bottom: 1px solid black;
   order: 2;
+  padding-left: 1em;
+  margin-right: 0em;
+  margin-bottom: .25em;
 }
-form.charsheet
-  main
-  > section
-  section.attributes
-  div.attr-applications
-  div.list-section
-  ul
-  li
-  input[type="checkbox"] {
+
+  input[type="checkbox"].proficiency-check {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -378,6 +367,7 @@ form.charsheet
   border: 1px solid black;
   border-radius: 10px;
   order: 1;
+  position: absolute
 }
 form.charsheet
   main
@@ -630,13 +620,8 @@ form.charsheet main section.combat > div.deathsaves > div div.bubbles {
   flex: 1 40%;
   margin-left: 5px;
 }
-form.charsheet
-  main
-  section.combat
-  > div.deathsaves
-  > div
-  div.bubbles
-  input[type="checkbox"] {
+
+  input[type="checkbox"].deathsaves {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
