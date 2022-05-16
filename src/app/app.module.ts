@@ -10,7 +10,8 @@ import { CharacterDisplayComponent } from './character-display/character-display
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewCharacterComponent } from './new-character/new-character.component';
 import { AppRoutingModule } from './shared/app-router.module';
-import { ProficiencySelectionComponent } from './proficiency-selection/proficiency-selection.component';
+import { ProficiencySelectionComponent } from './new-character/proficiency-selection/proficiency-selection.component';
+import { CharacterInputComponent } from './new-character/character-input/character-input.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProficiencySelectionComponent } from './proficiency-selection/proficien
     CharacterDisplayComponent,
     NewCharacterComponent,
     ProficiencySelectionComponent,
+    CharacterInputComponent,
   ],
   imports: [
     BrowserModule,
