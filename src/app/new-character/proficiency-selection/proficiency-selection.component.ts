@@ -34,29 +34,40 @@ export class ProficiencySelectionComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.newCharacterService.newCharacter);
 
+    this.proficienciesSelectedForm = this.formBuilder.group({
+      proficiencies: new FormArray([]),
+    });
+
+    // building form
     this.newCharacterService.proficiencyChoices.subscribe((response) => {
       this.proficiencyChoiceNumber = response.map((res) => res.choose);
       this.proficiencyChoiceTypes = response.map((data) => data.from);
 
-      console.log(this.proficiencyChoiceNumber);
-      this.proficienciesSelectedForm = this.formBuilder.group({
-        proficiencies: new FormArray([]),
-      });
+      console.log(this.proficiencyChoiceTypes);
+
+      // sets proficiency array
       for (let i = 0; i < this.proficiencyChoiceTypes.length; i++) {
+        console.log('Test', i);
         this.proficiencyChoiceTypes[i].forEach((choice) => {
           this.proficiencyChoices.push(choice);
+          this.proficienciesFormArray.push(new FormControl(false));
         });
-        console.log(this.proficiencyChoices);
       }
-      this.addCheckboxesToForm();
+      console.log(this.proficiencyChoices);
+
+      // this.addCheckboxesToForm();
     });
   }
+  // add checkboxes for selecting
   private addCheckboxesToForm() {
-    this.proficiencyChoiceTypes[0].forEach(() =>
-      this.proficienciesFormArray.push(new FormControl(false))
-    );
+    for (let i = 0; i < this.proficiencyChoices.length; i++) {
+      this.proficiencyChoiceTypes.forEach(() =>
+        this.proficienciesFormArray.push(new FormControl(false))
+      );
+    }
   }
 
+  // submit form
   proficiencyChoicesSubmit() {
     const selectedProficiencies =
       this.proficienciesSelectedForm.value.proficiencies
