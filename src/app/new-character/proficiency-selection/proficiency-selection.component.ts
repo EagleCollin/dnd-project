@@ -38,6 +38,12 @@ export class ProficiencySelectionComponent implements OnInit {
       proficiencies: new FormArray([]),
     });
 
+    // for loop??
+    // this.proficienciesSelectedForm = this.formBuilder.group({
+    //   '0': new FormArray([]),
+    //   '1': new FormArray([])
+    // });
+
     // building form
     this.newCharacterService.proficiencyChoices.subscribe((response) => {
       this.proficiencyChoiceNumber = response.map((res) => res.choose);
