@@ -248,24 +248,29 @@
                   }}
                 </p>
                 <input
+                  id="acro"
                   name="Acrobatics-prof"
                   type="checkbox"
                   class="proficiency-check"
-                  (change)="
-                    addProfBonus(
-                      $event,
-                      genScores(character.attributes.dexterity),
-                      acroProf
-                    )
-                  "
+                  [checked]="addProfBonus(
+                    genScores(character.attributes.dexterity),
+                    acroProf
+                  )"
+                  (change)="addProfBonus(
+                    $event,
+                    genScores(character.attributes.dexterity),
+                    acroProf
+                  )"
                 />
               </li>
               <li>
                 <label for="Animal Handling"
                   >Animal Handling <span class="skill">(Wis)</span></label
                 >
-                <p class="prof-label" name="Animal Handling" placeholder="+0">
-                  {{ genScores(character.attributes.wisdom) }}
+                <p class="prof-label" name="Animal Handling" placeholder="+0" #animalProf>
+                  {{
+                    animalProf.value || genScores(character.attributes.wisdom)
+                  }}
                 </p>
                 <input
                   name="Animal Handling-prof"
