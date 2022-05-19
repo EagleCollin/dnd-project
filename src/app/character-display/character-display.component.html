@@ -2,40 +2,46 @@
   All Characters
 </button>
 <form class="charsheet">
-  <header>
-    <section class="charname">
-      <label for="charname">Character Name</label
+  <header class="top-display">
+    <section class="char-box">
+      <label for="charname" class="char-name">Character Name</label
       ><input
+        class="char-input"
         name="charname"
         placeholder="Thoradin Fireforge"
         value="{{ character.name }}"
       />
     </section>
     <section class="misc">
-      <ul>
-        <li>
-          <label for="classlevel">Class & Level</label
-          ><input name="classlevel" placeholder="Paladin 2" />
+      <ul class="misc-list">
+        <li class="misc-items">
+          <label for="classlevel" class="margin-5">Class & Level</label
+          ><input name="classlevel" placeholder="Paladin 2" class="b-none" />
         </li>
-        <li>
-          <label for="background">Background</label
-          ><input name="background" placeholder="Acolyte" />
+        <li class="misc-items">
+          <label for="background" class="margin-5">Background</label
+          ><input name="background" placeholder="Acolyte" class="b-none" />
         </li>
-        <li>
-          <label for="playername">Player Name</label
-          ><input name="playername" placeholder="Player McPlayerface" />
+        <li class="misc-items">
+          <label for="playername" class="margin-5">Player Name</label
+          ><input
+            name="playername"
+            placeholder="Player McPlayerface"
+            class="b-none"
+          />
         </li>
-        <li>
-          <label for="race">Race</label
-          ><input name="race" placeholder="Half-elf" />
+        <li class="misc-items">
+          <label for="race" class="margin-5">Race</label
+          ><input name="race" placeholder="Half-elf" class="b-none" />
         </li>
-        <li>
-          <label for="alignment">Alignment</label
-          ><input name="alignment" placeholder="Lawful Good" />
+        <li class="misc-items">
+          <label for="alignment" class="margin-5">Alignment</label
+          ><input name="alignment" placeholder="Lawful Good" class="b-none" />
         </li>
-        <li>
-          <label for="experiencepoints">Experience Points</label
-          ><input name="experiencepoints" placeholder="3240" />
+        <li class="misc-items">
+          <label for="experiencepoints" class="margin-5"
+            >Experience Points</label
+          ><input name="experiencepoints" placeholder="3240" class="b-none" />
         </li>
       </ul>
     </section>
@@ -55,11 +61,9 @@
                 />
               </div>
               <div class="modifier">
-                <input
-                  name="Strengthmod"
-                  placeholder="+0"
-                  value="{{ genScores(character.attributes.strength) }}"
-                />
+                <p class="mod-display" placeholder="+0">
+                  {{ genScores(character.attributes.strength) }}
+                </p>
               </div>
             </li>
             <li>
@@ -71,12 +75,10 @@
                   value="{{ character.attributes.dexterity }}"
                 />
               </div>
-              <div class="modifier">
-                <input
-                  name="Dexteritymod"
-                  placeholder="+0"
-                  value="{{ genScores(character.attributes.dexterity) }}"
-                />
+              <div>
+                <p class="mod-display" placeholder="+0">
+                  {{ genScores(character.attributes.dexterity) }}
+                </p>
               </div>
             </li>
             <li>
@@ -88,12 +90,10 @@
                   value="{{ character.attributes.constitution }}"
                 />
               </div>
-              <div class="modifier">
-                <input
-                  name="Constitutionmod"
-                  placeholder="+0"
-                  value="{{ genScores(character.attributes.constitution) }}"
-                />
+              <div>
+                <p class="mod-display" placeholder="+0">
+                  {{ genScores(character.attributes.constitution) }}
+                </p>
               </div>
             </li>
             <li>
@@ -105,12 +105,10 @@
                   value="{{ character.attributes.wisdom }}"
                 />
               </div>
-              <div class="modifier">
-                <input
-                  name="Wisdommod"
-                  placeholder="+0"
-                  value="{{ genScores(character.attributes.wisdom) }}"
-                />
+              <div>
+                <p class="mod-display" placeholder="+0">
+                  {{ genScores(character.attributes.wisdom) }}
+                </p>
               </div>
             </li>
             <li>
@@ -122,12 +120,10 @@
                   value="{{ character.attributes.intelligence }}"
                 />
               </div>
-              <div class="modifier">
-                <input
-                  name="Intelligencemod"
-                  placeholder="+0"
-                  value="{{ genScores(character.attributes.intelligence) }}"
-                />
+              <div>
+                <p class="mod-display" placeholder="+0">
+                  {{ genScores(character.attributes.intelligence) }}
+                </p>
               </div>
             </li>
             <li>
@@ -139,12 +135,10 @@
                   value="{{ character.attributes.charisma }}"
                 />
               </div>
-              <div class="modifier">
-                <input
-                  name="Charismamod"
-                  placeholder="+0"
-                  value="{{ genScores(character.attributes.charisma) }}"
-                />
+              <div>
+                <p class="mod-display" placeholder="+0">
+                  {{ genScores(character.attributes.charisma) }}
+                </p>
               </div>
             </li>
           </ul>
@@ -169,59 +163,70 @@
           <div class="saves list-section box">
             <ul>
               <li>
-                <label for="Strength-save">Strength</label
-                ><p class="prof-label"
-                  name="Strength-save"
-                  placeholder="+0">
-                  {{ genScores(character.attributes.strength) }}</p>
-                <input name="Strength-save-prof" type="checkbox" class="proficiency-check"/>
+                <label for="Strength-save">Strength</label>
+                <p class="prof-label" name="Strength-save" placeholder="+0">
+                  {{ genScores(character.attributes.strength) }}
+                </p>
+                <input
+                  name="Strength-save-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
-                <label for="Dexterity-save">Dexterity</label
-                ><p class="prof-label"
-                  name="Dexterity-save"
-                  placeholder="+0">
+                <label for="Dexterity-save">Dexterity</label>
+                <p class="prof-label" name="Dexterity-save" placeholder="+0">
                   {{ genScores(character.attributes.dexterity) }}
                 </p>
-                <input name="Dexterity-save-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Dexterity-save-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
-                <label for="Constitution-save">Constitution</label
-                ><p class="prof-label"
-                  name="Constitution-save"
-                  placeholder="+0">
+                <label for="Constitution-save">Constitution</label>
+                <p class="prof-label" name="Constitution-save" placeholder="+0">
                   {{ genScores(character.attributes.constitution) }}
                 </p>
-                <input name="Constitution-save-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Constitution-save-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
-                <label for="Wisdom-save">Wisdom</label
-                ><p class="prof-label"
-                  name="Wisdom-save"
-                  placeholder="+0"
-                  >
+                <label for="Wisdom-save">Wisdom</label>
+                <p class="prof-label" name="Wisdom-save" placeholder="+0">
                   {{ genScores(character.attributes.wisdom) }}
                 </p>
-                <input name="Wisdom-save-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Wisdom-save-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
-                <label for="Intelligence-save">Intelligence</label
-                ><p
-                  name="Intelligence-save"
-                  placeholder="+0"
-                  class="prof-label">
+                <label for="Intelligence-save">Intelligence</label>
+                <p name="Intelligence-save" placeholder="+0" class="prof-label">
                   {{ genScores(character.attributes.intelligence) }}
                 </p>
-                <input name="Intelligence-save-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Intelligence-save-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
-                <label for="Charisma-save">Charisma</label
-                ><p class="prof-label"
-                  name="Charisma-save"
-                  placeholder="+0">
+                <label for="Charisma-save">Charisma</label>
+                <p class="prof-label" name="Charisma-save" placeholder="+0">
                   {{ genScores(character.attributes.charisma) }}
                 </p>
-                  <input name="Charisma-save-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Charisma-save-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
             </ul>
             <div class="label">Saving Throws</div>
@@ -231,183 +236,250 @@
               <li>
                 <label for="Acrobatics"
                   >Acrobatics <span class="skill">(Dex)</span></label
-                ><p class="prof-label"
+                >
+                <p
+                  class="prof-label"
                   name="Acrobatics"
-                  placeholder="+0">
-
-                  {{ genScores(character.attributes.dexterity) }}
+                  placeholder="+0"
+                  #acroProf
+                >
+                  {{
+                    acroProf.value || genScores(character.attributes.dexterity)
+                  }}
                 </p>
-                <input name="Acrobatics-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Acrobatics-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                  (change)="
+                    addProfBonus(
+                      $event,
+                      genScores(character.attributes.dexterity),
+                      acroProf
+                    )
+                  "
+                />
               </li>
               <li>
                 <label for="Animal Handling"
                   >Animal Handling <span class="skill">(Wis)</span></label
-                ><p class="prof-label"
-                  name="Animal Handling"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Animal Handling" placeholder="+0">
                   {{ genScores(character.attributes.wisdom) }}
                 </p>
-                <input name="Animal Handling-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Animal Handling-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Arcana"
                   >Arcana <span class="skill">(Int)</span></label
-                ><p class="prof-label"
-                  name="Arcana"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Arcana" placeholder="+0">
                   {{ genScores(character.attributes.intelligence) }}
                 </p>
-                <input name="Arcana-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Arcana-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Athletics"
                   >Athletics <span class="skill">(Str)</span></label
-                ><p class="prof-label"
-                  name="Athletics"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Athletics" placeholder="+0">
                   {{ genScores(character.attributes.strength) }}
                 </p>
-                <input name="Athletics-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Athletics-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Deception"
                   >Deception <span class="skill">(Cha)</span></label
-                ><p class="prof-label"
-                  name="Deception"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Deception" placeholder="+0">
                   {{ genScores(character.attributes.charisma) }}
                 </p>
-                <input name="Deception-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Deception-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="History"
                   >History <span class="skill">(Int)</span></label
-                ><p class="prof-label"
-                  name="History"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="History" placeholder="+0">
                   {{ genScores(character.attributes.intelligence) }}
                 </p>
-                <input name="History-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="History-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Insight"
                   >Insight <span class="skill">(Wis)</span></label
-                ><p class="prof-label"
-                  name="Insight"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Insight" placeholder="+0">
                   {{ genScores(character.attributes.wisdom) }}
                 </p>
-              <input name="Insight-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Insight-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Intimidation"
                   >Intimidation <span class="skill">(Cha)</span></label
-                ><p class="prof-label"
-                  name="Intimidation"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Intimidation" placeholder="+0">
                   {{ genScores(character.attributes.charisma) }}
                 </p>
-                <input name="Intimidation-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Intimidation-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Investigation"
                   >Investigation <span class="skill">(Int)</span></label
-                ><p class="prof-label"
-                  name="Investigation"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Investigation" placeholder="+0">
                   {{ genScores(character.attributes.intelligence) }}
                 </p>
-                <input name="Investigation-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Investigation-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Medicine"
                   >Medicine <span class="skill">(Wis)</span></label
-                ><p class="prof-label"
-                  name="Medicine"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Medicine" placeholder="+0">
                   {{ genScores(character.attributes.wisdom) }}
                 </p>
-                <input name="Medicine-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Medicine-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Nature"
                   >Nature <span class="skill">(Int)</span></label
-                ><p class="prof-label"
-                  name="Nature"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Nature" placeholder="+0">
                   {{ genScores(character.attributes.intelligence) }}
                 </p>
-                <input name="Nature-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Nature-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Perception"
                   >Perception <span class="skill">(Wis)</span></label
-                ><p class="prof-label"
-                  name="Perception"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Perception" placeholder="+0">
                   {{ genScores(character.attributes.wisdom) }}
                 </p>
-                <input name="Perception-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Perception-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Performance"
                   >Performance <span class="skill">(Cha)</span></label
-                ><p class="prof-label"
-                  name="Performance"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Performance" placeholder="+0">
                   {{ genScores(character.attributes.charisma) }}
                 </p>
-                <input name="Performance-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Performance-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Persuasion"
                   >Persuasion <span class="skill">(Cha)</span></label
-                ><p class="prof-label"
-                  name="Persuasion"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Persuasion" placeholder="+0">
                   {{ genScores(character.attributes.charisma) }}
                 </p>
-                <input name="Persuasion-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Persuasion-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Religion"
                   >Religion <span class="skill">(Int)</span></label
-                ><p class="prof-label"
-                  name="Religion"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Religion" placeholder="+0">
                   {{ genScores(character.attributes.intelligence) }}
                 </p>
-                <input name="Religion-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Religion-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Sleight of Hand"
                   >Sleight of Hand <span class="skill">(Dex)</span></label
-                ><p class="prof-label"
-                  name="Sleight of Hand"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Sleight of Hand" placeholder="+0">
                   {{ genScores(character.attributes.dexterity) }}
                 </p>
-                <input name="Sleight of Hand-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Sleight of Hand-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Stealth"
                   >Stealth <span class="skill">(Dex)</span></label
-                ><p class="prof-label"
-                  name="Stealth"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Stealth" placeholder="+0">
                   {{ genScores(character.attributes.dexterity) }}
                 </p>
-                <input name="Stealth-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Stealth-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
               <li>
                 <label for="Survival"
                   >Survival <span class="skill">(Wis)</span></label
-                ><p class="prof-label"
-                  name="Survival"
-                  placeholder="+0">
+                >
+                <p class="prof-label" name="Survival" placeholder="+0">
                   {{ genScores(character.attributes.wisdom) }}
                 </p>
-                <input name="Survival-prof" type="checkbox" class="proficiency-check"/>
+                <input
+                  name="Survival-prof"
+                  type="checkbox"
+                  class="proficiency-check"
+                />
               </li>
             </ul>
             <div class="label">Skills</div>
@@ -432,19 +504,19 @@
       <section class="combat">
         <div class="armorclass">
           <div>
-            <label for="ac">Armor Class</label
+            <label for="ac" class="combat-label">Armor Class</label
             ><input name="ac" placeholder="10" type="text" />
           </div>
         </div>
         <div class="initiative">
           <div>
-            <label for="initiative">Initiative</label
+            <label for="initiative" class="combat-label">Initiative</label
             ><input name="initiative" placeholder="+0" type="text" />
           </div>
         </div>
         <div class="speed">
           <div>
-            <label for="speed">Speed</label
+            <label for="speed" class="combat-label">Speed</label
             ><input name="speed" placeholder="30" type="text" />
           </div>
         </div>
@@ -483,19 +555,31 @@
             </div>
             <div class="marks">
               <div class="deathsuccesses">
-                <label>Successes</label>
+                <label class="death-label">Successes</label>
                 <div class="bubbles">
-                  <input name="deathsuccess1" type="checkbox" class="deathsaves"/>
-                  <input name="deathsuccess2" type="checkbox" class="deathsaves"/>
-                  <input name="deathsuccess3" type="checkbox" class="deathsaves"/>
+                  <input
+                    name="deathsuccess1"
+                    type="checkbox"
+                    class="deathsaves"
+                  />
+                  <input
+                    name="deathsuccess2"
+                    type="checkbox"
+                    class="deathsaves"
+                  />
+                  <input
+                    name="deathsuccess3"
+                    type="checkbox"
+                    class="deathsaves"
+                  />
                 </div>
               </div>
               <div class="deathfails">
-                <label>Failures</label>
+                <label class="death-label">Failures</label>
                 <div class="bubbles">
-                  <input name="deathfail1" type="checkbox" class="deathsaves"/>
-                  <input name="deathfail2" type="checkbox" class="deathsaves"/>
-                  <input name="deathfail3" type="checkbox" class="deathsaves"/>
+                  <input name="deathfail1" type="checkbox" class="deathsaves" />
+                  <input name="deathfail2" type="checkbox" class="deathsaves" />
+                  <input name="deathfail3" type="checkbox" class="deathsaves" />
                 </div>
               </div>
             </div>
@@ -504,7 +588,7 @@
       </section>
       <section class="attacksandspellcasting">
         <div>
-          <label>Attacks & Spellcasting</label>
+          <label class="flex-label">Attacks & Spellcasting</label>
           <table>
             <thead>
               <tr>
@@ -549,12 +633,12 @@
               </tr>
             </tbody>
           </table>
-          <textarea></textarea>
+          <textarea class="b-none"></textarea>
         </div>
       </section>
       <section class="equipment">
         <div>
-          <label>Equipment</label>
+          <label class="flex-label">Equipment</label>
           <div class="money">
             <ul>
               <li><label for="cp">cp</label><input name="cp" /></li>
@@ -586,7 +670,7 @@
       </section>
       <section class="features">
         <div>
-          <label for="features">Features & Traits</label
+          <label for="features" class="section-label">Features & Traits</label
           ><textarea name="features"></textarea>
         </div>
       </section>

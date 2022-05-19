@@ -31,4 +31,16 @@ export class CharacterDisplayComponent implements OnInit {
     let sign = modifier >= 0 ? '+' : '';
     return sign + modifier;
   }
+
+  addProfBonus(e, score, ref) {
+    if (e.target.checked) {
+      let modifier = Number(score) + this.profBonus;
+      let sign = modifier >= 0 ? '+' : '';
+      ref.value = sign + modifier;
+    } else {
+      let modifier = Number(score);
+      let sign = modifier >= 0 ? '+' : '';
+      ref.value = sign + modifier;
+    }
+  }
 }
