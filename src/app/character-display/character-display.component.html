@@ -252,22 +252,25 @@
                   name="Acrobatics-prof"
                   type="checkbox"
                   class="proficiency-check"
-                  [checked]="addProfBonus(
-                    genScores(character.attributes.dexterity),
-                    acroProf
-                  )"
-                  (change)="addProfBonus(
-                    $event,
-                    genScores(character.attributes.dexterity),
-                    acroProf
-                  )"
+                  (change)="
+                    addProfBonus(
+                      $event,
+                      genScores(character.attributes.dexterity),
+                      acroProf
+                    )
+                  "
                 />
               </li>
               <li>
                 <label for="Animal Handling"
                   >Animal Handling <span class="skill">(Wis)</span></label
                 >
-                <p class="prof-label" name="Animal Handling" placeholder="+0" #animalProf>
+                <p
+                  class="prof-label"
+                  name="Animal Handling"
+                  placeholder="+0"
+                  #animalProf
+                >
                   {{
                     animalProf.value || genScores(character.attributes.wisdom)
                   }}
@@ -499,10 +502,7 @@
       </div>
       <div class="otherprofs box textblock">
         <label for="otherprofs">Other Proficiencies and Languages</label
-        ><textarea
-          name="otherprofs"
-          value="{{ character.proficiencies }}"
-        ></textarea>
+        ><textarea name="otherprofs" value=""></textarea>
       </div>
     </section>
     <section>

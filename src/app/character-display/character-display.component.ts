@@ -12,7 +12,6 @@ export class CharacterDisplayComponent implements OnInit {
   character: Character;
   idx: number;
   profBonus;
-  profCheck: Boolean;
 
   constructor(
     private characterService: CharacterService,
@@ -33,8 +32,8 @@ export class CharacterDisplayComponent implements OnInit {
     return sign + modifier;
   }
 
-  addProfBonus(score, ref) {
-    if (this.profCheck) {
+  addProfBonus(e, score, ref) {
+    if (e.target.checked) {
       let modifier = Number(score) + this.profBonus;
       let sign = modifier >= 0 ? '+' : '';
       ref.value = sign + modifier;

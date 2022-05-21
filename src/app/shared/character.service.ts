@@ -23,7 +23,7 @@ export class CharacterService {
         wisdom: 17,
         constitution: 12,
       },
-      proficiencies: ['arcana', 'investigation'],
+      // proficiencies: ['arcana', 'investigation'],
     },
     {
       name: 'Ron',
@@ -40,7 +40,7 @@ export class CharacterService {
         wisdom: 18,
         constitution: 15,
       },
-      proficiencies: ['intimdation', 'perception'],
+      // proficiencies: ['intimdation', 'perception'],
     },
     {
       name: 'Nathan',
@@ -57,7 +57,7 @@ export class CharacterService {
         wisdom: 14,
         constitution: 14,
       },
-      proficiencies: ['survival', 'sleightOfHand'],
+      // proficiencies: ['survival', 'sleightOfHand'],
     },
   ];
 

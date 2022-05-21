@@ -27,6 +27,27 @@ export type Skills = {
   survival: number;
 };
 
+export type Proficiencies = [
+  acrobatics: false,
+  animalHandling: false,
+  arcana: false,
+  athlethics: false,
+  deception: false,
+  history: false,
+  insight: false,
+  intimidation: false,
+  investigation: false,
+  medicine: false,
+  nature: false,
+  perception: false,
+  religion: false,
+  sleightOfHand: false,
+  stealth: false,
+  survival: false
+];
+
+export type OtherProficiencies = string[];
+
 export type Character = {
   name: string;
   class: string;
@@ -35,5 +56,6 @@ export type Character = {
   background: string;
   attributes: Attributes;
   alignment: string;
-  proficiencies: string[];
+  proficiencies: Proficiencies;
+  otherProficiencies: OtherProficiencies;
 };
