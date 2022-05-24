@@ -24,7 +24,7 @@ export class CharacterService {
         wisdom: 17,
         constitution: 12,
       },
-      proficiencies: [
+      proficiencies: {
         acrobatics: false,
         animalHandling: false,
         arcana: false,
@@ -40,8 +40,9 @@ export class CharacterService {
         religion: false,
         sleightOfHand: false,
         stealth: false,
-        survival: false
-      ],
+        survival: false,
+      },
+      otherProficiencies: [],
     },
     {
       name: 'Ron',
@@ -58,7 +59,7 @@ export class CharacterService {
         wisdom: 18,
         constitution: 15,
       },
-      proficiencies: [
+      proficiencies: {
         acrobatics: false,
         animalHandling: false,
         arcana: false,
@@ -74,8 +75,9 @@ export class CharacterService {
         religion: false,
         sleightOfHand: false,
         stealth: false,
-        survival: false
-    ],
+        survival: false,
+      },
+      otherProficiencies: [],
     },
     {
       name: 'Nathan',
@@ -92,7 +94,7 @@ export class CharacterService {
         wisdom: 14,
         constitution: 14,
       },
-      proficiencies: [
+      proficiencies: {
         acrobatics: false,
         animalHandling: false,
         arcana: false,
@@ -108,7 +110,9 @@ export class CharacterService {
         religion: false,
         sleightOfHand: false,
         stealth: false,
-        survival: false]
+        survival: false,
+      },
+      otherProficiencies: [],
     },
   ];
 
