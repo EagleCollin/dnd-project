@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Character } from './character-model';
+import { Proficiencies } from './character-model';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService {
@@ -23,7 +24,24 @@ export class CharacterService {
         wisdom: 17,
         constitution: 12,
       },
-      // proficiencies: ['arcana', 'investigation'],
+      proficiencies: [
+        acrobatics: false,
+        animalHandling: false,
+        arcana: false,
+        athlethics: false,
+        deception: false,
+        history: false,
+        insight: false,
+        intimidation: false,
+        investigation: false,
+        medicine: false,
+        nature: false,
+        perception: false,
+        religion: false,
+        sleightOfHand: false,
+        stealth: false,
+        survival: false
+      ],
     },
     {
       name: 'Ron',
@@ -40,7 +58,24 @@ export class CharacterService {
         wisdom: 18,
         constitution: 15,
       },
-      // proficiencies: ['intimdation', 'perception'],
+      proficiencies: [
+        acrobatics: false,
+        animalHandling: false,
+        arcana: false,
+        athlethics: false,
+        deception: false,
+        history: false,
+        insight: false,
+        intimidation: false,
+        investigation: false,
+        medicine: false,
+        nature: false,
+        perception: false,
+        religion: false,
+        sleightOfHand: false,
+        stealth: false,
+        survival: false
+    ],
     },
     {
       name: 'Nathan',
@@ -57,7 +92,23 @@ export class CharacterService {
         wisdom: 14,
         constitution: 14,
       },
-      // proficiencies: ['survival', 'sleightOfHand'],
+      proficiencies: [
+        acrobatics: false,
+        animalHandling: false,
+        arcana: false,
+        athlethics: false,
+        deception: false,
+        history: false,
+        insight: false,
+        intimidation: false,
+        investigation: false,
+        medicine: false,
+        nature: false,
+        perception: false,
+        religion: false,
+        sleightOfHand: false,
+        stealth: false,
+        survival: false]
     },
   ];
 
