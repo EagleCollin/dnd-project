@@ -22,25 +22,35 @@ export class CharacterDisplayComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.idx = +params['id'];
       this.character = this.characterService.displayCharacter(this.idx);
+      console.log(this.character);
     });
     this.profBonus = 1 + Math.floor(this.character.level / 4);
   }
 
-  genScores(att) {
+  genMod(att) {
     let modifier = Math.floor((att - 10) / 2);
     let sign = modifier >= 0 ? '+' : '';
     return sign + modifier;
   }
 
-  addProfBonus(e, score, ref) {
-    if (e.target.checked) {
+  genScores(att, isChecked, ref) {
+    let modifier = Math.floor((att - 10) / 2);
+    let sign = modifier >= 0 ? '+' : '';
+
+    this.addProfBonus(sign + modifier, ref, isChecked);
+
+    return sign + modifier;
+  }
+
+  addProfBonus(score, ref, isChecked) {
+    if (isChecked) {
       let modifier = Number(score) + this.profBonus;
       let sign = modifier >= 0 ? '+' : '';
-      ref.value = sign + modifier;
+      ref.innerText = sign + modifier;
     } else {
       let modifier = Number(score);
       let sign = modifier >= 0 ? '+' : '';
-      ref.value = sign + modifier;
+      ref.innerText = sign + modifier;
     }
   }
 }

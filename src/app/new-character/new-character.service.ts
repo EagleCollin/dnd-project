@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Character } from '../shared/character-model';
 import { CharacterService } from '../shared/character.service';
@@ -27,11 +28,15 @@ export class NewCharacterService {
     level: 1,
     race: '',
     background: '',
+    proficiencies: [],
+    otherProficiencies: [],
   };
 
   constructor(
     private http: HttpClient,
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   onClassSelect(charClass: string) {
@@ -41,9 +46,14 @@ export class NewCharacterService {
     this.http
       .get(`https://www.dnd5eapi.co/api/classes/${formattedSearch}`)
       .subscribe((results: any) => {
-        console.log(results);
-        const choices = results.proficiency_choices;
-        this.proficiencyChoices.next(choices);
+        this.newCharacter.proficiencies = results.proficiencies.map(
+          (proficiency: any) => proficiency.name
+        );
+        this.proficiencyChoices = results.proficiency_choices;
+
+        this.router.navigate(['new/choices'], {
+          relativeTo: this.route,
+        });
       });
   }
 }

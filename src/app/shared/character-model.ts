@@ -28,22 +28,30 @@ export type Skills = {
 };
 
 export type Proficiencies = {
-  acrobatics: false;
-  animalHandling: false;
-  arcana: false;
-  athlethics: false;
-  deception: false;
-  history: false;
-  insight: false;
-  intimidation: false;
-  investigation: false;
-  medicine: false;
-  nature: false;
-  perception: false;
-  religion: false;
-  sleightOfHand: false;
-  stealth: false;
-  survival: false;
+  strength: boolean;
+  dexterity: boolean;
+  constitution: boolean;
+  wisdom: boolean;
+  intelligence: boolean;
+  charisma: boolean;
+  acrobatics: boolean;
+  animalHandling: boolean;
+  arcana: boolean;
+  athlethics: boolean;
+  deception: boolean;
+  history: boolean;
+  insight: boolean;
+  intimidation: boolean;
+  investigation: boolean;
+  medicine: boolean;
+  nature: boolean;
+  perception: boolean;
+  performance: boolean;
+  persuasion: boolean;
+  religion: boolean;
+  sleightOfHand: boolean;
+  stealth: boolean;
+  survival: boolean;
 };
 
 export type OtherProficiencies = string[];
