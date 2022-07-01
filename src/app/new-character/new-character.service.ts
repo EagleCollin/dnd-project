@@ -48,11 +48,8 @@ export class NewCharacterService {
   }
 
   prepareProficiencies(charClass: string) {
-    const formattedSearch = charClass.toLowerCase();
-    this.newCharacter.class = charClass;
-
     this.http
-      .get(`https://www.dnd5eapi.co/api/classes/${formattedSearch}`)
+      .get(`https://www.dnd5eapi.co/api/classes/${charClass}`)
       .subscribe((results: any) => {
         this.newCharacter.proficiencies = results.proficiencies.map(
           (proficiency: any) => proficiency.name
