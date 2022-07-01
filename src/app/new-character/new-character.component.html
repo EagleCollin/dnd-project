@@ -1,50 +1,16 @@
-<form
-  [formGroup]="reactiveForm"
-  (ngSubmit)="onSearchClass(reactiveForm.value.class)"
->
-  <div class="col-md-12">
-    <div class="form-group">
-      <label for="class">Class</label>
-      <select
-        id="class"
-        name="class"
-        class="form-control"
-        formControlName="class"
-        required
-      >
-        <option disabled selected value>Please select a class</option>
-        <option value="Barbarian">Barbarian</option>
-        <option value="Bard">Bard</option>
-        <option value="Cleric">Cleric</option>
-        <option value="Druid">Druid</option>
-        <option value="Fighter">Fighter</option>
-        <option value="Monk">Monk</option>
-        <option value="Paladin">Paladin</option>
-        <option value="Ranger">Ranger</option>
-        <option value="Rogue">Rogue</option>
-        <option value="Sorcerer">Sorcerer</option>
-        <option value="Wizard">Wizard</option>
-        <option value="Warlock">Warlock</option>
-      </select>
-      <span
-        class="help-block text-danger"
-        *ngIf="
-          reactiveForm.controls['class'].touched &&
-          !reactiveForm.controls['class'].valid
-        "
-        >Please select a class!</span
-      >
-    </div>
-  </div>
-  <button
-    type="submit"
-    class="btn btn-primary"
-    [disabled]="!reactiveForm.valid"
-  >
-    Save Class</button
-  ><br />
+<div class="proficiencies">
+  <h1>Create a New Character</h1>
+  <h2 *ngIf="newCharacter?.class">
+    Class:
+    <span style="color: gray">{{ newCharacter.class.toUpperCase() }}</span>
+  </h2>
 
-  <button type="button" class="btn btn-warning" (click)="onResetForm()">
-    Cancel
-  </button>
-</form>
+  <div *ngIf="newCharacter?.proficiencies?.length > 0">
+    <h2>Current Proficiencies</h2>
+    <ul>
+      <li *ngFor="let choice of newCharacter.proficiencies">{{ choice }}</li>
+    </ul>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

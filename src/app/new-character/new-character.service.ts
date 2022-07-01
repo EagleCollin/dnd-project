@@ -21,7 +21,8 @@ export interface ProficiencyDetails {
 })
 export class NewCharacterService {
   selectedProficiencyIds = new Subject();
-  proficiencyChoices = new Subject<ProficiencyChoice[]>();
+  characterSubject = new Subject<[]>();
+  proficiencyChoices: any = [];
   newCharacter: any = {
     name: '',
     class: '',
@@ -39,8 +40,15 @@ export class NewCharacterService {
     private route: ActivatedRoute
   ) {}
 
-  onClassSelect(charClass: string) {
-    const formattedSearch = charClass.toLocaleLowerCase();
+  chooseCless(newClassName: string) {
+    this.newCharacter.class = newClassName;
+    this.characterSubject.next(this.newCharacter);
+
+    this.prepareProficiencies(newClassName);
+  }
+
+  prepareProficiencies(charClass: string) {
+    const formattedSearch = charClass.toLowerCase();
     this.newCharacter.class = charClass;
 
     this.http
@@ -51,9 +59,13 @@ export class NewCharacterService {
         );
         this.proficiencyChoices = results.proficiency_choices;
 
-        this.router.navigate(['new/choices'], {
+        this.router.navigate(['create-character/select-proficiencies'], {
           relativeTo: this.route,
         });
       });
+  }
+
+  onCharacterCreationComplete() {
+    this.characterService.addCharacter(this.newCharacter);
   }
 }

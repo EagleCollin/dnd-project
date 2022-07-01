@@ -1,0 +1,39 @@
+<div *ngIf="true">
+  <p *ngIf="hasChoicesLeft()" class="choose-num">
+    Choose {{ this.proficiencyChoices.choose }}
+  </p>
+
+  <form
+    [formGroup]="proficienciesForm"
+    (ngSubmit)="onSubmitProficiencyChoices()"
+  >
+    <section class="flex-col" *ngIf="hasChoicesLeft()">
+      <label
+        formArrayName="proficiencies"
+        *ngFor="let proficiency of proficiencyFormArray.controls; let i = index"
+      >
+        <input type="checkbox" [formControlName]="i" />
+        {{ proficiencyChoices.form[i].name }}
+      </label>
+    </section>
+
+    <br />
+
+    <button
+      *ngIf="!hasChoicesLeft()"
+      type="button"
+      (click)="resetChoices()"
+      class="mr-2"
+    >
+      Re-Choose
+    </button>
+    <button
+      [disabled]="hasSubmit"
+      *ngIf="!hasChoicesLeft()"
+      type="submit"
+      class="btn btn-success"
+    >
+      Submit
+    </button>
+  </form>
+</div>

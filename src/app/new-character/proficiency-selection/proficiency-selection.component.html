@@ -1,17 +1,7 @@
-<form
-  *ngIf="proficienciesSelectedForm"
-  [formGroup]="proficienciesSelectedForm"
-  (ngSubmit)="proficiencyChoicesSubmit()"
->
-  <div *ngFor="let proficiency of proficiencyChoiceTypes; let i = index">
-    <p>Choose {{ proficiencyChoiceNumber[i] }}</p>
-    <label
-      formArrayName="proficiencies"
-      *ngFor="let choice of proficiencyChoices; let i = index"
-    >
-      <p>{{ choice.name }}</p>
-      <input type="checkbox" [formControlName]="i" />
-    </label>
-  </div>
-  <button class="btn btn-primary">Submit Proficiencies</button>
-</form>
+<section *ngFor="let type of proficiencyChoices; let i = index">
+  <app-proficiency-types
+    [proficiencyChoices]="type"
+    (nextStep)="onNextStep()"
+    *ngIf="i + 1 == currStep"
+  ></app-proficiency-types>
+</section>

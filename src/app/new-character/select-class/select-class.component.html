@@ -1,0 +1,43 @@
+<form
+  #selectClassFormRef="ngForm"
+  (ngSubmit)="onSelectClass(selectClassFormRef)"
+>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label for="class">Class</label>
+      <select
+        id="class"
+        name="class"
+        class="form-control"
+        formControlName="class"
+        required
+      >
+        <option disabled selected value>Please select a class</option>
+        <option value="Barbarian">Barbarian</option>
+        <option value="Bard">Bard</option>
+        <option value="Cleric">Cleric</option>
+        <option value="Druid">Druid</option>
+        <option value="Fighter">Fighter</option>
+        <option value="Monk">Monk</option>
+        <option value="Paladin">Paladin</option>
+        <option value="Ranger">Ranger</option>
+        <option value="Rogue">Rogue</option>
+        <option value="Sorcerer">Sorcerer</option>
+        <option value="Wizard">Wizard</option>
+        <option value="Warlock">Warlock</option>
+      </select>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!selectClassFormRef.valid"
+    >
+      Save Class
+    </button>
+    <br />
+
+    <button type="button" class="btn btn-warning" (click)="onResetForm()">
+      Cancel
+    </button>
+  </div>
+</form>

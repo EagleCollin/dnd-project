@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Character } from '../shared/character-model';
 import { NewCharacterService } from './new-character.service';
 
 @Component({
@@ -9,32 +10,17 @@ import { NewCharacterService } from './new-character.service';
   styleUrls: ['./new-character.component.css'],
 })
 export class NewCharacterComponent implements OnInit {
-  reactiveForm: FormGroup;
-  formSubmitted: boolean = false;
+  newCharacter: any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private classService: NewCharacterService
+    private newCharacterService: NewCharacterService
   ) {}
 
   ngOnInit(): void {
-    this.reactiveForm = new FormGroup({
-      class: new FormControl(),
+    (this.newCharacter = this.newCharacterService), this.newCharacter;
+    this.newCharacterService.characterSubject.subscribe((updatedCharacter) => {
+      this.newCharacter = updatedCharacter;
     });
-  }
-
-  onCharacterSubmit() {
-    this.formSubmitted = true;
-    this.reactiveForm.reset();
-  }
-
-  onSearchClass(charClass: any) {
-    console.log(charClass);
-    this.classService.onClassSelect(charClass);
-    this.router.navigate(['choices'], { relativeTo: this.route });
-  }
-
-  onResetForm() {
-    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }

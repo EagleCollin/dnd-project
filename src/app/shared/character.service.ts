@@ -147,7 +147,13 @@ export class CharacterService {
   addCharacter(character: Character) {
     this.myCharacters.push(character);
 
+    const characterIndex = this.myCharacters.findIndex((object) => {
+      return object.name === character.name;
+    });
+
     this.characterListChange.emit(this.myCharacters.slice());
+
+    return characterIndex;
   }
 
   deleteCharacter(idx: number) {

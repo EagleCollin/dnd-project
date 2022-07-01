@@ -27,6 +27,6 @@ export class CharacterListComponent implements OnInit {
   }
 
   onAddCharacter() {
-    this.router.navigate(['new'], { relativeTo: this.route });
+    this.router.navigate(['create-character']);
   }
 }
