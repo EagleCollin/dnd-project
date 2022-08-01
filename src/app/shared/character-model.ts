@@ -64,6 +64,7 @@ export type Character = {
   background: string;
   attributes: Attributes;
   alignment: string;
+  speed: number;
   proficiencies: Proficiencies;
   otherProficiencies: OtherProficiencies;
 };

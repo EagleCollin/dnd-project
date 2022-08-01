@@ -50,6 +50,7 @@ export class CharacterService {
         stealth: false,
         survival: false,
       },
+      speed: 30,
       otherProficiencies: [],
     },
     {
@@ -93,6 +94,7 @@ export class CharacterService {
         stealth: false,
         survival: false,
       },
+      speed: 30,
       otherProficiencies: [],
     },
     {
@@ -136,6 +138,7 @@ export class CharacterService {
         stealth: false,
         survival: false,
       },
+      speed: 30,
       otherProficiencies: [],
     },
   ];

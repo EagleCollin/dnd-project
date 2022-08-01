@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Character } from '../shared/character-model';
 import { CharacterService } from '../shared/character.service';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-character-display',
@@ -12,6 +13,7 @@ export class CharacterDisplayComponent implements OnInit {
   character: Character;
   idx: number;
   profBonus;
+  user: User;
 
   constructor(
     private characterService: CharacterService,
@@ -30,7 +32,7 @@ export class CharacterDisplayComponent implements OnInit {
   genMod(att) {
     let modifier = Math.floor((att - 10) / 2);
     let sign = modifier >= 0 ? '+' : '';
-    return sign + modifier;
+    return parseInt(sign + modifier);
   }
 
   genScores(att, isChecked, ref) {

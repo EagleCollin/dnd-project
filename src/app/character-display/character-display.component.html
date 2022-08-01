@@ -16,11 +16,21 @@
       <ul class="misc-list">
         <li class="misc-items">
           <label for="classlevel" class="margin-5">Class & Level</label
-          ><input name="classlevel" placeholder="Paladin 2" class="b-none" />
+          ><input
+            name="classlevel"
+            placeholder="Paladin 2"
+            class="b-none"
+            value="{{ character.class }} {{ character.level }}"
+          />
         </li>
         <li class="misc-items">
           <label for="background" class="margin-5">Background</label
-          ><input name="background" placeholder="Acolyte" class="b-none" />
+          ><input
+            name="background"
+            placeholder="Acolyte"
+            class="b-none"
+            value="{{ character.background }}"
+          />
         </li>
         <li class="misc-items">
           <label for="playername" class="margin-5">Player Name</label
@@ -28,15 +38,26 @@
             name="playername"
             placeholder="Player McPlayerface"
             class="b-none"
+            value="{{ user?.name }}"
           />
         </li>
         <li class="misc-items">
           <label for="race" class="margin-5">Race</label
-          ><input name="race" placeholder="Half-elf" class="b-none" />
+          ><input
+            name="race"
+            placeholder="Half-elf"
+            class="b-none"
+            value="{{ character.race }}"
+          />
         </li>
         <li class="misc-items">
           <label for="alignment" class="margin-5">Alignment</label
-          ><input name="alignment" placeholder="Lawful Good" class="b-none" />
+          ><input
+            name="alignment"
+            placeholder="Lawful Good"
+            class="b-none"
+            value="{{ character.alignment }}"
+          />
         </li>
         <li class="misc-items">
           <label for="experiencepoints" class="margin-5"
@@ -986,19 +1007,34 @@
         <div class="armorclass">
           <div>
             <label for="ac" class="combat-label">Armor Class</label
-            ><input name="ac" placeholder="10" type="text" />
+            ><input
+              name="ac"
+              placeholder="10"
+              type="text"
+              value="{{ genMod(character.attributes.dexterity) + 10 }}"
+            />
           </div>
         </div>
         <div class="initiative">
           <div>
             <label for="initiative" class="combat-label">Initiative</label
-            ><input name="initiative" placeholder="+0" type="text" />
+            ><input
+              name="initiative"
+              placeholder="+0"
+              type="text"
+              value="+{{ genMod(character.attributes.dexterity) }}"
+            />
           </div>
         </div>
         <div class="speed">
           <div>
             <label for="speed" class="combat-label">Speed</label
-            ><input name="speed" placeholder="30" type="text" />
+            ><input
+              name="speed"
+              placeholder="30"
+              type="text"
+              value="{{ character.speed }}"
+            />
           </div>
         </div>
         <div class="hp">
