@@ -1,5 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UntypedFormArray, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import {
+  FormControl,
+  UntypedFormArray,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NewCharacterService } from '../../new-character.service';
 
@@ -11,6 +17,8 @@ import { NewCharacterService } from '../../new-character.service';
 export class ProficiencyTypesComponent implements OnInit {
   @Output() nextStep = new EventEmitter();
   @Input() proficiencyChoices: any = [];
+  proficiencyChoiceList = [];
+  proficiencyChoiceArray = [];
   proficienciesForm: UntypedFormGroup;
   hasSubmit = false;
 
@@ -31,13 +39,18 @@ export class ProficiencyTypesComponent implements OnInit {
     if (this.newCharacterService.newCharacter.class == '') {
       this.router.navigate(['create-character']);
     } else {
+      this.proficiencyChoiceList = this.newCharacterService.proficiencyChoices;
       this.addCheckboxesToForm();
     }
   }
 
   private addCheckboxesToForm() {
-    this.proficiencyChoices?.from.forEach(() => {
-      this.proficienciesFormArray.push(new UntypedFormControl(false));
+    this.proficiencyChoiceList?.forEach((object) => {
+      object.from.options.forEach((choice) => {
+        let profItem = choice.item.name;
+        this.proficiencyChoiceArray.push(profItem);
+        this.proficienciesFormArray.push(new FormControl(false));
+      });
     });
   }
 

@@ -10,10 +10,13 @@
     <section class="flex-col" *ngIf="hasChoicesLeft()">
       <label
         formArrayName="proficiencies"
-        *ngFor="let proficiency of proficiencyFormArray.controls; let i = index"
+        *ngFor="
+          let proficiency of proficienciesFormArray.controls;
+          let i = index
+        "
       >
         <input type="checkbox" [formControlName]="i" />
-        {{ proficiencyChoices.from[i].name }}
+        {{ proficiencyChoiceArray[i] }}
       </label>
     </section>
 
