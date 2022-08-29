@@ -4,31 +4,31 @@
     (ngSubmit)="onSubmitProficiencyChoices()"
   >
     <mat-stepper>
-      <mat-step *ngFor="let choices of proficiencyGroupArray; let i = index">
-        <p>Choose {{ proficiencyGroupArray[i].choose }}</p>
-        <section *ngFor="let choice of proficiencyGroupArray[i].from.options">
+      <mat-step *ngFor="let choices of proficiencyChoiceList; let i = index">
+        <p>Choose {{ proficiencyChoiceList[i].choose }}</p>
+        <section *ngFor="let choice of proficiencyChoiceList[i].from.options">
           <mat-checkbox>{{ choice.item.name }}</mat-checkbox>
         </section>
+        <button
+          *ngIf="!hasChoicesLeft()"
+          type="button"
+          (click)="resetChoices()"
+          class="mr-2"
+        >
+          Re-Choose
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="hasSubmit"
+          type="submit"
+          color="primary"
+          style="float: right"
+        >
+          Submit
+        </button>
       </mat-step>
 
       <br />
-
-      <button
-        *ngIf="!hasChoicesLeft()"
-        type="button"
-        (click)="resetChoices()"
-        class="mr-2"
-      >
-        Re-Choose
-      </button>
-      <button
-        [disabled]="hasSubmit"
-        *ngIf="!hasChoicesLeft()"
-        type="submit"
-        class="btn btn-success"
-      >
-        Submit
-      </button>
     </mat-stepper>
   </form>
 </div>
