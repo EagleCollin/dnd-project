@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+
 import { Character } from '../shared/character-model';
 import { CharacterService } from '../shared/character.service';
 import { User } from '../shared/user.model';

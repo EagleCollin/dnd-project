@@ -19,5 +19,13 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     MatButtonModule,
   ],
+  exports: [
+    MatFormFieldModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatButtonModule,
+  ],
 })
 export class MaterialModule {}

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { CharacterSheetService } from 'src/app/character-sheet/character-sheet.service';
+import { CharacterDisplayService } from 'src/app/character-display/charatcer-display.service';
+
 import { CharacterService } from 'src/app/shared/character.service';
 import { NewCharacterService } from '../new-character.service';
 import {
@@ -21,7 +22,7 @@ export class ProficiencySelectionComponent implements OnInit {
 
   constructor(
     private newCharacterService: NewCharacterService,
-    private characterSheetService: CharacterSheetService,
+    private characterDisplayService: CharacterDisplayService,
     private router: Router,
     private characterService: CharacterService
   ) {}
@@ -38,7 +39,7 @@ export class ProficiencySelectionComponent implements OnInit {
     this.currStep - this.currStep + 1;
 
     if (this.currStep > this.proficiencyChoices.length) {
-      this.characterSheetService.currCharacter.next(
+      this.characterDisplayService.currCharacter.next(
         this.newCharacterService.newCharacter
       );
 

@@ -19,6 +19,7 @@ export class ProficiencyTypesComponent implements OnInit {
   @Input() proficiencyChoices: any = [];
   proficiencyChoiceList = [];
   proficiencyChoiceArray = [];
+  proficiencyGroupArray = [];
   proficienciesForm: UntypedFormGroup;
   hasSubmit = false;
 
@@ -40,18 +41,18 @@ export class ProficiencyTypesComponent implements OnInit {
       this.router.navigate(['create-character']);
     } else {
       this.proficiencyChoiceList = this.newCharacterService.proficiencyChoices;
+      this.setProficiencyChoiceArray();
       this.addCheckboxesToForm();
     }
   }
 
-  private addCheckboxesToForm() {
+  private addCheckboxesToForm() {}
+
+  private setProficiencyChoiceArray() {
     this.proficiencyChoiceList?.forEach((object) => {
-      object.from.options.forEach((choice) => {
-        let profItem = choice.item.name;
-        this.proficiencyChoiceArray.push(profItem);
-        this.proficienciesFormArray.push(new FormControl(false));
-      });
+      this.proficiencyGroupArray.push(object);
     });
+    console.log(this.proficiencyGroupArray);
   }
 
   hasChoicesLeft() {

@@ -14,6 +14,7 @@ import { ProficiencySelectionComponent } from './new-character/proficiency-selec
 import { SelectClassComponent } from './new-character/select-class/select-class.component';
 import { ProficiencyTypesComponent } from './new-character/proficiency-selection/proficiency-types/proficiency-types.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MaterialModule,
     BrowserAnimationsModule,
   ],
   providers: [],
