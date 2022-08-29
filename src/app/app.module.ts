@@ -13,6 +13,7 @@ import { NewCharacterComponent } from './new-character/new-character.component';
 import { ProficiencySelectionComponent } from './new-character/proficiency-selection/proficiency-selection.component';
 import { SelectClassComponent } from './new-character/select-class/select-class.component';
 import { ProficiencyTypesComponent } from './new-character/proficiency-selection/proficiency-types/proficiency-types.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProficiencyTypesComponent } from './new-character/proficiency-selection
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
