@@ -1,11 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  FormControl,
-  UntypedFormArray,
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
-} from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NewCharacterService } from '../../new-character.service';
 
@@ -18,19 +12,19 @@ export class ProficiencyTypesComponent implements OnInit {
   @Output() nextStep = new EventEmitter();
   @Input() proficiencyChoices: any = [];
   proficiencyChoiceList = [];
-  proficienciesForm: UntypedFormGroup;
+  proficienciesForm: FormGroup;
   hasSubmit = false;
 
   get proficienciesFormArray() {
-    return this.proficienciesForm.controls['proficiencies'] as UntypedFormArray;
+    return this.proficienciesForm.controls['proficiencies'] as FormArray;
   }
   constructor(
     private newCharacterService: NewCharacterService,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router
   ) {
     this.proficienciesForm = this.formBuilder.group({
-      proficiencies: new UntypedFormArray([]),
+      proficiencies: new FormArray([]),
     });
   }
 
